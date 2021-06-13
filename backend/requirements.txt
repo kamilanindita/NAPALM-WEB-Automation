@@ -1,0 +1,16 @@
+pip==9.0.1
+setuptools==56.0.0
+cryptography==3.3.1
+napalm==2.5.0
+napalm-huawei-vrp
+napalm-ros
+Django==2.2.17
+django-cors-headers==3.3.0
+djangorestframework==3.11.2
+djangorestframework-simplejwt==4.4.0
+djongo==1.2.38
+pythonping==1.0.15
+ipaddress==1.0.23
+requests==2.25.1
+sqlparse==0.2.4
+PyJWT==1.7.1

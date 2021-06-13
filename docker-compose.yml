@@ -1,0 +1,62 @@
+#docker-compose.yml (multi container)
+version: '3.4'
+    
+services:
+    backend:
+        container_name: app-backend-django
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        command: python3 manage.py runserver 0.0.0.0:8000
+        ports:
+            - '10.33.109.241:8000:8000'
+        depends_on:
+            - mongodb
+        links:
+            - mongodb
+        networks:
+            - finalproject
+
+    mongodb:
+        container_name: mongodb
+        image: mongo:4.4
+        ports:
+            - '27001:27001'
+        networks:
+            - finalproject
+        volumes:
+            - ./mongodata:/data/db
+        
+    frontend:
+        container_name: app-frontend-vue
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        ports:
+            - '10.33.109.241:80:80'
+        env_file:
+            - ./frontend/.env
+        links:
+            - backend
+        networks:
+            - finalproject
+
+    aaa1:
+        container_name: tacacs-server
+        build:
+            context: ./tacacs
+            dockerfile: Dockerfile
+        ports:
+            - '10.33.109.241:49:49'
+
+    aaa2:
+        container_name: radius-server
+        build:
+            context: ./radius
+            dockerfile: Dockerfile
+        ports:
+            - '10.33.109.241:1812:1812/udp'
+            - '10.33.109.241:1813:1813/udp'
+
+networks:
+    finalproject:
