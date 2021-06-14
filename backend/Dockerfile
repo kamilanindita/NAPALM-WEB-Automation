@@ -2,6 +2,7 @@ FROM ubuntu:18.04
 
 # install python 3.7.10 (or newer)
 RUN apt update
+RUN apt install iputils-ping -y && apt install openssh-server -y
 RUN apt install --no-install-recommends -y build-essential software-properties-common
 RUN add-apt-repository -y ppa:deadsnakes/ppa
 RUN apt install --no-install-recommends -y python3.7
