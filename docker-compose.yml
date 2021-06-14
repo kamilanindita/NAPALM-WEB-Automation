@@ -9,7 +9,7 @@ services:
             dockerfile: Dockerfile
         command: python3 manage.py runserver 0.0.0.0:8000
         ports:
-            - '10.33.109.241:8000:8000'
+            - '8000:8000'
         depends_on:
             - mongodb
         links:
@@ -33,7 +33,7 @@ services:
             context: ./frontend
             dockerfile: Dockerfile
         ports:
-            - '10.33.109.241:80:80'
+            - '80:80'
         env_file:
             - ./frontend/.env
         links:
@@ -47,7 +47,7 @@ services:
             context: ./tacacs
             dockerfile: Dockerfile
         ports:
-            - '10.33.109.241:49:49'
+            - '49:49'
 
     aaa2:
         container_name: radius-server
@@ -55,8 +55,8 @@ services:
             context: ./radius
             dockerfile: Dockerfile
         ports:
-            - '10.33.109.241:1812:1812/udp'
-            - '10.33.109.241:1813:1813/udp'
+            - '1812:1812/udp'
+            - '1813:1813/udp'
 
 networks:
     finalproject:
