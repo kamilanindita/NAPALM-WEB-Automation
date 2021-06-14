@@ -16,6 +16,8 @@ services:
             - mongodb
         networks:
             - finalproject
+        volumes:
+            - ./backend/backup:/backup
 
     mongodb:
         container_name: mongodb
@@ -48,6 +50,8 @@ services:
             dockerfile: Dockerfile
         ports:
             - '49:49'
+        volumes:
+            - ./tacacs:/etc/tacacs+
 
     aaa2:
         container_name: radius-server
@@ -57,6 +61,9 @@ services:
         ports:
             - '1812:1812/udp'
             - '1813:1813/udp'
-
+        volumes:
+            - ./radius:/etc/raddb/client.conf
+            - ./radius:/etc/rabdb/mods-config/files/authorize 
+         
 networks:
     finalproject:
