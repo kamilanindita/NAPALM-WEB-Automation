@@ -9,7 +9,6 @@ django-cors-headers==3.3.0
 djangorestframework==3.11.2
 djangorestframework-simplejwt==4.4.0
 djongo==1.2.38
-pythonping==1.0.15
 ipaddress==1.0.23
 requests==2.25.1
 sqlparse==0.2.4

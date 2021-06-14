@@ -1,4 +1,3 @@
-from pythonping import ping
 from ipaddress import IPv4Network
 import napalm
 from napalm_ros import ros
