@@ -34,7 +34,7 @@ class DeviceInterface(models.Model):
     id=models.AutoField(primary_key=True)
     device = models.ForeignKey(Device, on_delete = models.CASCADE, null=True, related_name="interfaces",)
     name = models.CharField(blank=True, max_length=50)
-    description = models.CharField(blank=True, max_length=50)
+    description = models.CharField(blank=True, max_length=150)
     is_enabled = models.BooleanField()
     is_up = models.BooleanField()
     mac_address = models.CharField(blank=True, max_length=50)
