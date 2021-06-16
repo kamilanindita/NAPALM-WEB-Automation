@@ -32,7 +32,8 @@ ___
  
  ## Readme
     make sure that all applications can run as in the following image
-	![Image of index](https://drive.google.com/uc?export=view&id=1mzmbj1oxKatRKWA1q7WH_GZ9l6hBQQm8)
+	
+![Image of index](https://drive.google.com/uc?export=view&id=1mzmbj1oxKatRKWA1q7WH_GZ9l6hBQQm8)
 ___
 
 #### 1. Main Page
