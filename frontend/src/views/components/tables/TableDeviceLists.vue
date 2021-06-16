@@ -442,7 +442,7 @@ const fields = [
 
 
 const interfaces_fields = [
-  { key: 'name',label: 'IP Address', _style:'min-width:40px' },
+  { key: 'name',label: 'Name', _style:'min-width:40px' },
   { key: 'is_enabled',label: 'Enabled'},
   { 
     key: 'is_up', 
