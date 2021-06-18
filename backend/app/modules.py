@@ -1,3 +1,4 @@
+from pythonping import ping
 from ipaddress import IPv4Network
 import napalm
 from napalm_ros import ros
@@ -35,7 +36,7 @@ class Modules():
         driver = napalm.get_network_driver(device.network_driver)
 
         if device.network_driver=='ros':
-            Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password}
+            Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password,'banner_timeout':'10'}
             connection = ConnectHandler(**Device)         
             result=[]
 
@@ -254,7 +255,7 @@ class Modules():
                 return 'Cannot connect to device'
 
         elif device.network_driver=='ros':
-            Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password}
+            Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password,'banner_timeout':'10'}
             connection = ConnectHandler(**Device)         
             result=[]
 
@@ -351,7 +352,7 @@ class Modules():
                     return serializer.data
 
         elif device.network_driver=='ros':
-            Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password}
+            Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password,'banner_timeout':'10'}
             connection = ConnectHandler(**Device)         
             
             try:
@@ -472,7 +473,7 @@ class Modules():
             commands=Modules.get_syntax(device.network_driver, config)
             cli='\n'.join(map(str, commands))
 
-            Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password}
+            Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password,'banner_timeout':'10'}
             connection = ConnectHandler(**Device)         
 
             try:
@@ -587,7 +588,7 @@ class Modules():
             commands=Modules.get_syntax_ipv6(device.network_driver, config)
             cli='\n'.join(map(str, commands))
 
-            Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password}
+            Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password,'banner_timeout':'10'}
             connection = ConnectHandler(**Device)         
 
             try:
@@ -688,7 +689,7 @@ class Modules():
                 return {"device":id,"config":cli,"status":"failed"}
 
         elif device.network_driver=='ros' :
-            Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password}
+            Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password,'banner_timeout':'10'}
             connection = ConnectHandler(**Device)         
  
             try:
@@ -875,6 +876,13 @@ class Modules():
             return cli
 
         elif vendor=='huawei_vrp' :
+            type_traffic=''
+            if typeTraffic=='in':
+                type_traffic='inbound'
+
+            elif typeTraffic=='out':
+                type_traffic='outbound'
+
             cli=['acl name '+aclName]
             if rules[0]['description'] :
                 cli.append('description '+rules[0]['description'])
@@ -919,7 +927,7 @@ class Modules():
                     cli.append('rule '+rule['action']+' '+rule['protocol']+' source '+rule['source']+' destination '+rule['destination'])
 
             cli.append('interface '+int)
-            cli.append('traffic-filter '+typeTraffic+' acl name '+aclName)
+            cli.append('traffic-filter '+type_traffic+' acl name '+aclName)
             return cli
 
         elif vendor=='ros' :
@@ -1148,6 +1156,13 @@ class Modules():
             return cli
 
         elif vendor=='huawei_vrp' :
+            type_traffic=''
+            if typeTraffic=='in':
+                type_traffic='inbound'
+
+            elif typeTraffic=='out':
+                type_traffic='outbound'
+
             cli=['acl ipv6 name '+aclName]
 
             if rules[0]['description'] :
@@ -1182,7 +1197,7 @@ class Modules():
                     cli.append('rule '+rule['action']+' '+rule['protocol']+' source '+rule['source']+' destination '+rule['destination'])
             
             cli.append('interface '+int)
-            cli.append('traffic-filter '+typeTraffic+' acl name '+aclName)
+            cli.append('traffic-filter '+type_traffic+' acl ipv6 name '+aclName)
             return cli
 
         elif vendor=='ros' :
