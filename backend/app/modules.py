@@ -938,7 +938,7 @@ class Modules():
                 if rule['action']=='permit' :
                     action='accept'
                 elif rule['action']:
-                    action='discard'
+                    action='drop'
 
                 if rule['sourcePrefix'] and rule['destinationPrefix'] and rule['sourcePort'] and rule['destinationPort'] and typeTraffic=='in':
                     cli.append('add chain=input action='+action+' protocol='+rule['protocol']+' src-address='+rule['source']+'/'+rule['sourcePrefix']+' src-port='+rule['sourcePort']+' dst-address='+rule['destination']+'/'+rule['destinationPrefix']+' dst-port='+rule['destinationPort']+' in-interface='+int+' comment='+rule['description'])                        
@@ -1020,7 +1020,7 @@ class Modules():
             if rules[0]['description'] :
                 cli.append('remark '+rules[0]['description'])
 
-            for rule in rules :
+            for rule in rules:
                 if rule['sourcePrefix'] and rule['destinationPrefix'] and rule['sourcePort'] and rule['destinationPort'] :
                     cli.append(rule['action']+' '+rule['protocol']+' '+rule['source']+'/'+rule['sourcePrefix']+' eq '+rule['sourcePort']+' '+rule['destination']+'/'+rule['destinationPrefix']+' eq '+rule['destinationPort'])
 
@@ -1208,7 +1208,7 @@ class Modules():
                 if rule['action']=='permit' :
                     action='accept'
                 elif rule['action']:
-                    action='discard'
+                    action='drop'
 
                 if rule['sourcePrefix'] and rule['destinationPrefix'] and rule['sourcePort'] and rule['destinationPort'] and typeTraffic=='in':
                     cli.append('add chain=input action='+action+' protocol='+rule['protocol']+' src-address='+rule['source']+'/'+rule['sourcePrefix']+' src-port='+rule['sourcePort']+' dst-address='+rule['destination']+'/'+rule['destinationPrefix']+' dst-port='+rule['destinationPort']+' in-interface='+int+' comment='+rule['description'])                        
