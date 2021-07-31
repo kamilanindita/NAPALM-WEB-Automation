@@ -260,8 +260,8 @@ class Modules():
             result=[]
 
             try:
-                result.append(connection.send_command('ip firewall filter export verbose'))
-                result.append(connection.send_command('ipv6 firewall filter export verbose'))
+                result.append(connection.send_command('ip firewall filter export terse'))
+                result.append(connection.send_command('ipv6 firewall filter export terse'))
                 results='\n'.join(map(str, result))
 
                 return results
@@ -355,8 +355,10 @@ class Modules():
             Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password,'banner_timeout':'10'}
             connection = ConnectHandler(**Device)         
             
+            Restore=restore.split('\n')
+
             try:
-                connection.send_command(restore)
+                connection.send_config_set(Restore)
                 data_result={"device":pk,"restore":restore,"status":"success"}
                 serializer = DeviceRestoreSerializer(data=data_result)
                 if serializer.is_valid():
@@ -690,10 +692,12 @@ class Modules():
 
         elif device.network_driver=='ros' :
             Device = {'device_type':'mikrotik_routeros','ip':device.ip_address,'username':device.username,'password':device.password,'banner_timeout':'10'}
-            connection = ConnectHandler(**Device)         
- 
+            connection = ConnectHandler(**Device)
+
+            commands=cli.split('\n')
+
             try:
-                connection.send_command(cli)
+                connection.send_config_set(commands)
                 return {"device":id,"config":cli,"status":"success"}
 
             except:
