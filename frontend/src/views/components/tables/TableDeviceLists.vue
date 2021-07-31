@@ -148,7 +148,7 @@
                         <CSelect
                             :value.sync="itemEdit.network_driver"
                             label="Network Driver"
-                            :options="['ios','eos','junos','ros','huawei_vrp']"
+                            :options="['ios','junos','ros','huawei_vrp']"
                         />
                         </CCol>
                     </CRow>
@@ -202,7 +202,7 @@
                     size="sm"
                     color="primary"
                     >
-                    <CSpinner size="sm" color="light"/> Sync
+                    <CSpinner size="sm" color="light"/> Update
                     </CButton>
 
                     <CButton
@@ -211,7 +211,7 @@
                     color="primary"
                     v-on:click.prevent="$emit('handleSyncInformation', modalInformation.id)"
                     >
-                    <CIcon name="cil-loop-circular"/> Sync
+                    <CIcon name="cil-loop-circular"/> Update
                     </CButton>
                 </CCol>
                 </CRow>
@@ -310,7 +310,7 @@
                     size="sm"
                     color="primary"
                     >
-                    <CSpinner size="sm" color="light"/> Sync
+                    <CSpinner size="sm" color="light"/> Update
                     </CButton>
 
                     <CButton
