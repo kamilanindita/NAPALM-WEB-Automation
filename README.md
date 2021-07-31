@@ -3,7 +3,7 @@
 <h2 align="center">A WEB-BASE MULTI-VENDOR ACCESS CONTROL LIST CONFIGURATION MANAGEMENT AUTOMATION USING PYTHON</h2>
 
 Fitur:
-- **Add Device**: Add new device, support vendor: cisco/ios, huawei, mikrotik/ros, juniper/junos, arista/eos.
+- **Add Device**: Add new device, support vendor: cisco/ios, huawei, mikrotik/ros, juniper/junos.
 - **Device List**: Detail Informations, Interfaces , and ARP Table.
 - **ACL Configuration**: ACL configuration on IPv4 and IPv6 protocols
 - **Backup**: Backup ACL Configuration
@@ -37,22 +37,22 @@ ___
 ___
 
 #### 1. Main Page
-![Image of index](https://drive.google.com/uc?export=view&id=1oqJ0vbPSBDXHMbNhHpqNXS8Muk4g2YcU)
+![Image of index](https://drive.google.com/uc?export=view&id=1cC8ws8u8vu6E3Ft5Hf8e3EYuMtIpklJX)
 
 #### 2. Add Device
 ![Image of index](https://drive.google.com/uc?export=view&id=1Qk2yUT96xvOuLn6OAP7ueBMDhUEFs2fn)
 
 #### 3. Device List
-![Image of index](https://drive.google.com/uc?export=view&id=1nllAZJ38DSi0LmrH5MarLQEOAxdIQp-m)
+![Image of index](https://drive.google.com/uc?export=view&id=1Hv01DyPP1YGFU5xSuTw7NmmzBY2EUnTq)
 
 #### 4. Detail Informations Device at Device List
-![Image of index](https://drive.google.com/uc?export=view&id=1BKO0eGZ1nJIOgFxyXJtTpPoy6kJX-e_m)
+![Image of index](https://drive.google.com/uc?export=view&id=15XgUkZIBSyol_vZV0iafCC2ZxGd7IfZ3)
 
 #### 5. Detail Interfaces Device at Device List
-![Image of index](https://drive.google.com/uc?export=view&id=1GzlCv4qbMyQM2hLkPB_Ui6meJY138Eph)
+![Image of index](https://drive.google.com/uc?export=view&id=1kivs5z9b-ZJANGUK9NSz9J83zhRtIeYN)
 
 #### 6. ARP Table Device at Device List
-![Image of index](https://drive.google.com/uc?export=view&id=1JlcQa_TlJAVoig0OWXiLTT0rgRbRMNP6)
+![Image of index](https://drive.google.com/uc?export=view&id=1HnkHdEar63Y9K36hIe9o45mt_heQE18o)
 
 #### 7. GUI ACL IPv4 Configuration
 ![Image of index](https://drive.google.com/uc?export=view&id=19MhuTh037A5A8K5GpyNuMGaO2hbawPNu)
