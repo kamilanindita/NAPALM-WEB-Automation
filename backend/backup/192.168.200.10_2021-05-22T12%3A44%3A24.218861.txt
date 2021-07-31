@@ -1,0 +1,3 @@
+ip access-group coba1 out
+ip access-list extended coba1
+ permit tcp any any

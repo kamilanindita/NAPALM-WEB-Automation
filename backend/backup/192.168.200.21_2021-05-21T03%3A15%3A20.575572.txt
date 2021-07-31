@@ -1,0 +1,11 @@
+1Der
+acl name coba1 3999
+ rule 5 permit tcp destination-port eq www
+interface GigabitEthernet0/0/0
+interface GigabitEthernet0/0/1
+ traffic-filter inbound acl name coba1
+interface GigabitEthernet0/0/2
+interface NULL0
+user-interface con 0
+user-interface vty 0 4
+user-interface vty 16 20

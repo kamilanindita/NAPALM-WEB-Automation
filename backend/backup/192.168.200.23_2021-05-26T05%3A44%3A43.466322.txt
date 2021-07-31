@@ -1,0 +1,36 @@
+interfaces {
+    fxp0 {
+        unit 0 {
+            family inet {
+                filter {
+                    output test2;
+                }
+                address 192.168.200.23/24;
+            }
+        }
+    }
+}
+firewall {
+    family inet {
+        filter test2 {
+            term test2 {
+                from {
+                    source-address {
+                        192.168.20.10/32;
+                    }
+                    destination-address {
+                        192.168.20.20/32;
+                    }
+                    protocol tcp;
+                    destination-port 80;
+                }
+                then {
+                    discard;
+                }
+            }
+            term term-default {
+                then accept;
+            }
+        }
+    }
+}

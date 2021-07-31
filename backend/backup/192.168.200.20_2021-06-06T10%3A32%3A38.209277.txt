@@ -1,0 +1,74 @@
+# jun/06/2021 10:32:01 by RouterOS 6.47
+# software id = 
+#
+#
+#
+/ip firewall filter
+add action=accept chain=input comment=test1 dst-address=192.168.20.0/24 \
+    dst-port=80 in-interface=ether2 protocol=tcp src-address=192.168.10.0/24 \
+    src-port=80
+add action=accept chain=input comment=test2 dst-address=192.168.20.0/24 \
+    dst-port=80 in-interface=ether2 protocol=tcp src-address=192.168.10.0/24
+add action=accept chain=input comment=test3 dst-address=192.168.20.0/24 \
+    in-interface=ether2 protocol=tcp src-address=192.168.10.0/24 src-port=80
+add action=accept chain=input comment=test4 dst-address=192.168.20.0/24 \
+    dst-port=80 in-interface=ether2 protocol=tcp src-address=192.168.10.1
+add action=accept chain=input comment=test5 dst-address=192.168.20.1 \
+    dst-port=80 in-interface=ether2 protocol=tcp src-address=192.168.10.0/24
+add action=accept chain=input comment=test6 dst-address=192.168.20.0/24 \
+    in-interface=ether2 protocol=tcp src-address=192.168.10.0/24
+add action=accept chain=input comment=test8 dst-address=192.168.20.1 \
+    in-interface=ether2 protocol=tcp src-address=192.168.10.0/24
+add action=accept chain=input comment=test8 dst-address=192.168.20.1 \
+    in-interface=ether2 protocol=tcp src-address=192.168.10.1
+add action=accept chain=input comment=test7 dst-address=192.168.20.0/24 \
+    in-interface=ether2 protocol=tcp src-address=192.168.10.1
+add action=accept chain=input comment=test9 dst-address=192.168.20.0/24 \
+    dst-port=80 in-interface=ether2 protocol=tcp src-address=192.168.10.1
+add action=accept chain=input comment=test10 dst-address=192.168.20.0/24 \
+    dst-port=20 in-interface=ether2 protocol=tcp src-address=192.168.10.1
+add action=accept chain=input comment=test11 dst-address=192.168.20.0/24 \
+    dst-port=22 in-interface=ether2 protocol=tcp src-address=192.168.10.1
+add action=accept chain=output comment=test15 dst-address=192.168.20.0/24 \
+    dst-port=80 out-interface=ether2 protocol=tcp src-address=192.168.10.0/24 \
+    src-port=80
+
+
+
+
+# jun/06/2021 10:32:02 by RouterOS 6.47
+# software id = 
+#
+#
+#
+/ipv6 firewall filter
+add action=accept chain=input comment=test1 dst-address=2002::/128 dst-port=\
+    80 in-interface=ether2 protocol=tcp src-address=2001::/128 src-port=80
+add action=accept chain=output comment=test2 dst-address=2002::/128 dst-port=\
+    80 out-interface=ether2 protocol=tcp src-address=2001::/128
+add action=accept chain=output comment=test3 dst-address=2002::/128 \
+    out-interface=ether2 protocol=tcp src-address=2001::/128 src-port=80
+add action=accept chain=output comment=test4 dst-address=2002::/128 dst-port=\
+    80 out-interface=ether2 protocol=tcp src-address=2001::1/128
+add action=accept chain=output comment=test5 dst-address=2002::1/128 \
+    dst-port=80 out-interface=ether2 protocol=tcp src-address=2001::/128
+add action=accept chain=output comment=test6 dst-address=2002::/128 \
+    out-interface=ether2 protocol=tcp src-address=2001::/128
+add action=accept chain=output comment=test7 dst-address=2002::/128 \
+    out-interface=ether2 protocol=tcp src-address=2001::1/128
+add action=accept chain=output comment=test8 dst-address=2002::1/128 \
+    out-interface=ether2 protocol=tcp src-address=2001::/128
+add action=accept chain=output comment=test9 dst-address=2002::1/128 \
+    out-interface=ether2 protocol=tcp src-address=2001::1/128
+add action=accept chain=input comment=test10 dst-address=2002::1/128 \
+    dst-port=80 in-interface=ether2 protocol=tcp src-address=2001::/128
+add action=accept chain=input comment=test11 dst-address=2002::1/128 \
+    dst-port=20 in-interface=ether2 protocol=tcp src-address=2001::/128
+add action=accept chain=input comment=test12 dst-address=2002::1/128 \
+    dst-port=22 in-interface=ether2 protocol=tcp src-address=2001::/128
+add action=accept chain=output comment=test13 dst-address=2002::/128 \
+    dst-port=80 out-interface=ether2 protocol=tcp src-address=2001::/128 \
+    src-port=80
+
+
+

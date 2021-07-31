@@ -1,0 +1,99 @@
+interfaces {
+    fxp0 {
+        unit 0 {
+            family inet {
+                filter {
+                    output blockWEB2;
+                }
+                address 10.33.109.253/24;
+            }
+            family inet6 {
+                filter {
+                    output ipv6BlockSSH;
+                }
+            }
+        }
+    }
+}
+firewall {
+    family inet {
+        filter blockWEB1 {
+            term blockWEB1 {
+                from {
+                    source-address {
+                        192.168.10.0/24;
+                    }
+                    destination-address {
+                        192.168.100.100/32;
+                    }
+                    protocol tcp;
+                    destination-port 80;
+                }
+                then {
+                    discard;
+                }
+            }
+            term term-default {
+                then accept;
+            }
+        }
+        filter blockWEB2 {
+            term blockWEB2 {
+                from {
+                    source-address {
+                        192.168.20.0/24;
+                    }
+                    destination-address {
+                        192.168.200.200/32;
+                    }
+                    protocol tcp;
+                    destination-port 80;
+                }
+                then {
+                    discard;
+                }
+            }
+            term term-default {
+                then accept;
+            }
+        }
+    }
+    family inet6 {
+        filter ipv6BlockWEB1 {
+            term ipv6BlockWEB1 {
+                from {
+                    source-address {
+                        2001:db1:85a0::0/128;
+                    }
+                    destination-address {
+                        2001:db1:85a2::1/128;
+                    }
+                    payload-protocol tcp;
+                    destination-port 80;
+                }
+                then discard;
+            }
+            term term-default {
+                then accept;
+            }
+        }
+        filter ipv6BlockSSH {
+            term ipv6BlockSSH {
+                from {
+                    source-address {
+                        2001:db1:85a0::0/128;
+                    }
+                    destination-address {
+                        2001:db1:85a0::1/128;
+                    }
+                    payload-protocol tcp;
+                    destination-port 22;
+                }
+                then discard;
+            }
+            term term-default {
+                then accept;
+            }
+        }
+    }
+}

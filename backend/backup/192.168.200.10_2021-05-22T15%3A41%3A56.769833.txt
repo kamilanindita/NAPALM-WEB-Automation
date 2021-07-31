@@ -1,0 +1,8 @@
+interface FastEthernet0/0
+interface FastEthernet0/1
+ ip access-group cobaApa out
+ ipv6 traffic-filter enamYA in
+ip access-list extended cobaApa
+ permit tcp any any
+ipv6 access-list enamYA
+ permit tcp any any

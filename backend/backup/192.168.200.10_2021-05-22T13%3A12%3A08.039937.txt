@@ -1,0 +1,7 @@
+interface FastEthernet0/0
+ ip access-group BlockFTP in
+ ip access-group BlockWeb out
+interface FastEthernet0/1
+ ip access-group cobalah out
+ip access-list extended cobalah
+ permit tcp any any

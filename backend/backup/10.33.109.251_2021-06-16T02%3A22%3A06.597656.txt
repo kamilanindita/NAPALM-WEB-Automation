@@ -1,0 +1,16 @@
+interface Embedded-Service-Engine0/0
+interface GigabitEthernet0/0
+interface GigabitEthernet0/1
+ ip access-group blockSSH in
+ ip access-group blockWEB out
+interface GigabitEthernet0/2
+ ipv6 traffic-filter ipv6blockSSH in
+ ipv6 traffic-filter ipv6blockWEB out
+ip access-list extended blockSSH
+ deny   tcp 192.168.100.0 0.0.0.255 host 192.168.200.100 eq 22
+ip access-list extended blockWEB
+ deny   tcp 192.168.10.0 0.0.0.255 host 192.168.200.100 eq www
+ipv6 access-list ipv6blockSSH
+ deny tcp host 2001:DB8:85A1:: host 2001:DB8:85A1::1 eq 22
+ipv6 access-list ipv6blockWEB
+ deny tcp host 2001:DB8:85A1:: host 2001:DB8:85AB::1 eq www

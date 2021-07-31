@@ -1,0 +1,11 @@
+acl name test6 3998
+acl name test4 3999
+interface GigabitEthernet0/0/0
+interface GigabitEthernet0/0/1
+ traffic-filter outbound acl name test4
+interface GigabitEthernet0/0/2
+ traffic-filter inbound acl name test6
+interface NULL0
+user-interface con 0
+user-interface vty 0 4
+user-interface vty 16 20

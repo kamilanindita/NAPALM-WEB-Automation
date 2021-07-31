@@ -1,0 +1,10 @@
+interface Embedded-Service-Engine0/0
+interface GigabitEthernet0/0
+interface GigabitEthernet0/1
+interface GigabitEthernet0/2
+ ip access-group blockSSH in
+ ip access-group blockWeb out
+ip access-list extended blockSSH
+ deny   tcp 192.168.20.0 0.0.0.255 host 192.168.10.100 eq 22
+ip access-list extended blockWeb
+ deny   tcp 192.168.10.0 0.0.0.255 host 10.10.100.100 eq www

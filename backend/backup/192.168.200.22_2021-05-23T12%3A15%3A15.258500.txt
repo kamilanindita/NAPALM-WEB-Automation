@@ -1,0 +1,18 @@
+interface Ethernet1
+interface Ethernet2
+interface Ethernet3
+interface Ethernet4
+interface Ethernet5
+interface Ethernet6
+interface Ethernet7
+interface Ethernet8
+interface Ethernet9
+interface Ethernet10
+interface Ethernet11
+interface Ethernet12
+interface Management1
+ip access-list coba2
+   10 permit tcp any any eq ftp-data
+ip access-list cobaajalah
+   10 permit tcp any any
+   ipv6 access-group coba in

@@ -1,0 +1,58 @@
+interfaces {
+    fxp0 {
+        unit 0 {
+            family inet {
+                filter {
+                    output testBoz;
+                }
+                address 192.168.200.23/24;
+            }
+            family inet6 {
+                filter {
+                    input test6Boze;
+                }
+            }
+        }
+    }
+}
+firewall {
+    family inet {
+        filter testBoz {
+            term testBoz {
+                from {
+                    source-address {
+                        192.168.10.0/32;
+                    }
+                    destination-address {
+                        192.168.20.0/32;
+                    }
+                    protocol tcp;
+                    destination-port 20;
+                }
+                then {
+                    discard;
+                }
+            }
+            term term-default {
+                then accept;
+            }
+        }
+    }
+    family inet6 {
+        filter test6Boze {
+            term test6Boze {
+                from {
+                    source-address {
+                        2001::1/128;
+                    }
+                    payload-protocol tcp;
+                    destination-port 80;
+                }
+                then discard;
+            }
+            term term-default {
+                then accept;
+            }
+        }
+    }
+}

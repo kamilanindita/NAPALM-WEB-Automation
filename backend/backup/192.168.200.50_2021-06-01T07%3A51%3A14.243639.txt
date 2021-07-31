@@ -1,0 +1,6 @@
+interface FastEthernet0/0
+interface FastEthernet0/1
+ ip access-group blockSSH in
+ip access-list extended blockSSH
+ deny   tcp 192.168.10.0 0.0.0.255 192.168.20.0 0.0.0.255 eq 22
+ permit tcp any any
