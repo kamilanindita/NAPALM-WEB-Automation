@@ -1,3 +1,0 @@
-ip access-group BlockFTP in
- ip access-group BlockWeb out
-ip access-list extended coba1

@@ -1,2 +1,0 @@
-ip access-group BlockFTP in
- ip access-group BlockWeb out

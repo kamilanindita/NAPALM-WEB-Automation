@@ -1,3 +1,0 @@
-ip access-list coba1
-   10 permit tcp any any
-   ip access-group coba1 in

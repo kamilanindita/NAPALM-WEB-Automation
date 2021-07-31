@@ -1,9 +1,0 @@
-# may/24/2021 07:26:10 by RouterOS 6.47
-# software id = 
-#
-#
-#
-/ip firewall filter add action=accept chain=output dst-address=192.168.20.0 dst-port=80 out-interface=ether2 protocol=tcp src-address=192.168.10.0 src-port=""
-
-
-
